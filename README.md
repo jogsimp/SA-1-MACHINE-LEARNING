@@ -15,7 +15,7 @@ Create a scatter plot by taking CYLINDERS as the x-axis and CO2EMISSIONS as the 
 Display the scatter plot with appropriate labels and title to visualize the relationship.
 
 ## PROGRAM
-
+```
 # ==========================
 # Importing necessary libraries
 import pandas as pd
@@ -46,8 +46,10 @@ plt.title('Cylinders vs CO2 Emission')
 plt.xlabel('Number of Cylinders')
 plt.ylabel('CO2 Emission')
 plt.show()
+```
 
 ## Output
+```
 Dataset Preview: MODELYEAR MAKE MODEL VEHICLECLASS ENGINESIZE CYLINDERS
 0 2014 ACURA ILX COMPACT 2.0 4
 1 2014 ACURA ILX COMPACT 2.4 4
@@ -70,6 +72,7 @@ FUELCONSUMPTION_COMB FUELCONSUMPTION_COMB_MPG CO2EMISSIONS
 4 10.6 27 244
 
 Selected Columns: CYLINDERS ENGINESIZE FUELCONSUMPTION_COMB CO2EMISSIONS 0 4 2.0 8.5 196 1 4 2.4 9.6 221 2 4 1.5 5.9 136 3 6 3.5 11.1 255 4 6 3.5 10.6 244
+```
 <img width="790" height="503" alt="Screenshot 2025-12-28 at 9 03 26 PM" src="https://github.com/user-attachments/assets/d826b5a6-b6e1-4032-84af-4813c2bb5965" />
 
 ## Result
@@ -92,7 +95,7 @@ Add title, axis labels, and legend for comparison clarity.
 Display the combined scatter plot using plt.show().
 
 ## Program
-
+```
 plt.figure(figsize=(7,5))
 plt.scatter(data['CYLINDERS'], data['CO2EMISSIONS'], color='blue', label='Cylinders')
 plt.scatter(data['ENGINESIZE'], data['CO2EMISSIONS'], color='red', label='Engine Size')
@@ -101,7 +104,7 @@ plt.xlabel('Value')
 plt.ylabel('CO2 Emission')
 plt.legend()
 plt.show()
-
+```
 ## Output
 
 <img width="798" height="572" alt="Screenshot 2025-12-28 at 9 04 28 PM" src="https://github.com/user-attachments/assets/a04e06c9-1c0d-4b17-9601-99b3db80df38" />
@@ -123,6 +126,7 @@ Add plot title, axis labels, and legend for clarity.
 Display the plot with plt.show() to compare all three features visually.
 
 ## Program
+```
 plt.figure(figsize=(7,5))
 plt.scatter(data['CYLINDERS'], data['CO2EMISSIONS'], color='green', label='Cylinders')
 plt.scatter(data['ENGINESIZE'], data['CO2EMISSIONS'], color='blue', label='Engine Size')
@@ -132,6 +136,7 @@ plt.xlabel('Value')
 plt.ylabel('CO2 Emission')
 plt.legend()
 plt.show()
+```
 
 ## Output
 <img width="752" height="489" alt="Screenshot 2025-12-28 at 9 05 56 PM" src="https://github.com/user-attachments/assets/4338f08f-ead2-4ed0-bdd4-522126e80954" />
@@ -151,6 +156,7 @@ Predict CO2 emission values for the test set using the trained model.
 Evaluate model performance using R2 score and print the accuracy.
 
 ## Program
+```
 X1 = data[['CYLINDERS']]
 y = data['CO2EMISSIONS']
 X1_train, X1_test, y_train, y_test = train_test_split(X1, y, test_size=0.2, random_state=42)
@@ -159,7 +165,7 @@ model1.fit(X1_train, y_train)
 y_pred1 = model1.predict(X1_test)
 acc1 = r2_score(y_test, y_pred1)
 print("\nModel 1 (Cylinders vs CO2Emission) Accuracy (R2 Score):", round(acc1, 3))
-
+```
 ##Output
 <img width="648" height="40" alt="Screenshot 2025-12-28 at 9 06 50 PM" src="https://github.com/user-attachments/assets/b959cdc2-172d-481d-adbb-bdddbf157cb4" />
 
@@ -180,7 +186,7 @@ Predict target values for the test data using the trained model.
 Calculate the R2 score to evaluate model accuracy and print the result.
 
 ## Program
-
+```
 X2 = data[['FUELCONSUMPTION_COMB']]
 X2_train, X2_test, y_train, y_test = train_test_split(X2, y, test_size=0.2, random_state=42)
 model2 = LinearRegression()
@@ -188,7 +194,7 @@ model2.fit(X2_train, y_train)
 y_pred2 = model2.predict(X2_test)
 acc2 = r2_score(y_test, y_pred2)
 print("Model 2 (FuelConsumption_comb vs CO2Emission) Accuracy (R2 Score):", round(acc2, 3))
-
+```
 ## Output
 
 <img width="737" height="38" alt="Screenshot 2025-12-28 at 9 07 48 PM" src="https://github.com/user-attachments/assets/1f0d1386-6133-46aa-b99a-e1fdc6d7f555" />
@@ -207,6 +213,7 @@ Train a linear regression model on each training set.
 Predict values on the respective test sets and compute R2 accuracy.
 Store and print the accuracy scores for each test ratio to observe performance changes.
 ## Program
+```
 ratios = [0.1, 0.2, 0.3, 0.4]
 accuracy_scores = []
 for ratio in ratios:
@@ -219,6 +226,7 @@ for ratio in ratios:
 print("\nDifferent Train-Test Split Accuracies (FuelConsumption_comb vs CO2Emission):")
 for r, a in accuracy_scores:
   print(f"Test Size: {r}, R2 Score: {a}")
+```
 ## Output
 
 <img width="730" height="121" alt="Screenshot 2025-12-28 at 9 08 37 PM" src="https://github.com/user-attachments/assets/51ee4f42-f824-482d-a78a-6badffcb31d2" />
